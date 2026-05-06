@@ -60,9 +60,12 @@ const Carousel = React.forwardRef<
       {
         ...opts,
         axis: orientation === "horizontal" ? "x" : "y",
+        dragFree: true,
+        containScroll: "trimSnaps",
       },
       plugins
     );
+
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);
     const [canScrollNext, setCanScrollNext] = React.useState(false);
 
@@ -151,7 +154,9 @@ const CarouselContent = React.forwardRef<
         ref={ref}
         className={cn(
           "flex",
-          orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+          orientation === "horizontal"
+            ? "-ml-2 sm:-ml-4"
+            : "-mt-2 sm:-mt-4 flex-col",
           className
         )}
         {...props}
@@ -173,8 +178,8 @@ const CarouselItem = React.forwardRef<
       role="group"
       aria-roledescription="slide"
       className={cn(
-        "min-w-0 shrink-0 grow-0 basis-full",
-        orientation === "horizontal" ? "pl-4" : "pt-4",
+        "min-w-0 shrink-0 grow-0 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4",
+        orientation === "horizontal" ? "pl-2 sm:pl-4" : "pt-2 sm:pt-4",
         className
       )}
       {...props}
@@ -195,9 +200,9 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full z-10",
+        "absolute h-7 w-7 sm:h-8 sm:w-8 rounded-full z-10 hidden sm:flex",
         orientation === "horizontal"
-          ? "top-1/2 left-2 -translate-y-1/2 md:-left-12" // Fica por dentro no mobile, por fora no desktop
+          ? "top-1/2 left-1 sm:left-2 md:-left-12 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -224,9 +229,9 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full z-10",
+        "absolute h-7 w-7 sm:h-8 sm:w-8 rounded-full z-10 hidden sm:flex",
         orientation === "horizontal"
-          ? "top-1/2 right-2 -translate-y-1/2 md:-right-12" // Fica por dentro no mobile, por fora no desktop
+          ? "top-1/2 right-1 sm:right-2 md:-right-12 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
