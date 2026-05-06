@@ -491,11 +491,11 @@ export default function App() {
               <h4 className="font-bold mb-4">Contato</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li>contato@busara26.com</li>
-                <li>+351 XXX XXX XXX</li>
-                <li>Portugal</li>
+                <li>+244 947 845 946</li>
+                <li>Angola</li>
                 <li className="pt-2">
                   <a
-                    href="https://wa.me/351XXXXXXXXX"
+                    href="https://wa.me/+244947845946"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-[#25D366] hover:text-[#20BA5A] transition"
